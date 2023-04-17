@@ -17,21 +17,27 @@ function App() {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    height: '100vh',
+    minHeight: '100vh',
+    position: 'relative',
+  });
+
+  const ContentContainer = styled(Container)({
+    marginBottom: '20px',
+    minHeight: 'calc(100vh - 160px)',
   });
 
   return (
     <GlobalContainer>
       <Header />
 
-      <Container sx={{ marginBottom: '20px' }}>
+      <ContentContainer>
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/countries' element={<Navigate to='/' />} />
           <Route path='/countries/:id' element={<TargetCountryPage />} />
           <Route path='*' element={<UnknownPage />} />
         </Routes>
-      </Container>
+      </ContentContainer>
 
       <Footer />
     </GlobalContainer>

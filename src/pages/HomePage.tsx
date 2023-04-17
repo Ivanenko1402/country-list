@@ -87,14 +87,8 @@ export const HomePage: React.FC = () => {
     justifyContent: 'center',
   });
 
-  const Box = styled('div')({
-    minHeight: visibleCountry.length
-      ? 'calc(100vh - 160px)'
-      : 'calc(100vh - 260px)'
-  })
-
   return (
-    <div style={{ position: 'relative' }}>
+    <>
       {!isError && !name && !isLoading && Boolean(!visibleCountry.length) && (
         <AlertContainer>
           <Alert variant="outlined" severity="success">
@@ -111,13 +105,11 @@ export const HomePage: React.FC = () => {
       )}
       <Loader isLoading={isLoading} />
       {!isLoading && (
-        <Box>
           <CardList
             list={visibleCountry}
             updateList={filterCountryFromServer}
           />
-        </Box>
       )}
-    </div>
+    </>
   );
 };
