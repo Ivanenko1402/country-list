@@ -106,39 +106,36 @@ export const CardList: React.FC<Props> = ({
     bottom: 0,
     left: 0,
     transform: 'translate(0, 35%)'
-  //   transform: count === 1
-  //     ? 'translate(-50%, 2640px)'
-  //     : count === 2
-  //       ? 'translate(-50%, 885px)'
-  //       : 'translate(-50%, 2640px)',
   });
+
+  const Box = styled('div')({
+    minHeight: 'calc(100vh - 160px)'
+  })
 
   const rowHeight = 300;
 
   return (
     <>
       <GridContextProvider onChange={moveCards}>
-        <GridDropZone
-          id="items"
-          boxesPerRow={count}
-          rowHeight={rowHeight}
-          style={{ height: 300 * Math.ceil(correctList.length / count) + 20, }}
-        >
-          {correctList.map((item) => (
-          <GridItem key={item.name.official}>
-            <div>
-              <div>
-              <CardItem
-                country={item}
-                checked={isCountryInStore(item)}
-                addCardToStore={addCardToStore}
-                removeCard={removeCardFromList}
-              />
-              </div>
-            </div>
-          </GridItem>
-        ))}
-        </GridDropZone>
+        <Box>
+          <GridDropZone
+            id="items"
+            boxesPerRow={count}
+            rowHeight={rowHeight}
+            style={{ height: 300 * Math.ceil(correctList.length / count) + 20, }}
+          >
+            {correctList.map((item) => (
+              <GridItem key={item.name.official}>
+                <CardItem
+                  country={item}
+                  checked={isCountryInStore(item)}
+                  addCardToStore={addCardToStore}
+                  removeCard={removeCardFromList}
+                />
+              </GridItem>
+            ))}
+          </GridDropZone>
+        </Box>
       </GridContextProvider>
       {Math.ceil(list.length / 15) > 1 && (
         <Stack>
