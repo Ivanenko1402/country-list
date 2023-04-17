@@ -108,34 +108,28 @@ export const CardList: React.FC<Props> = ({
     transform: 'translate(0, 35%)'
   });
 
-  const Box = styled('div')({
-    minHeight: 'calc(100vh - 160px)'
-  })
-
   const rowHeight = 300;
 
   return (
     <>
       <GridContextProvider onChange={moveCards}>
-        <Box>
-          <GridDropZone
-            id="items"
-            boxesPerRow={count}
-            rowHeight={rowHeight}
-            style={{ height: 300 * Math.ceil(correctList.length / count) + 20, }}
-          >
-            {correctList.map((item) => (
-              <GridItem key={item.name.official}>
-                <CardItem
-                  country={item}
-                  checked={isCountryInStore(item)}
-                  addCardToStore={addCardToStore}
-                  removeCard={removeCardFromList}
-                />
-              </GridItem>
-            ))}
-          </GridDropZone>
-        </Box>
+        <GridDropZone
+          id="items"
+          boxesPerRow={count}
+          rowHeight={rowHeight}
+          style={{ height: 300 * Math.ceil(correctList.length / count) + 20, }}
+        >
+          {correctList.map((item) => (
+            <GridItem key={item.name.official}>
+              <CardItem
+                country={item}
+                checked={isCountryInStore(item)}
+                addCardToStore={addCardToStore}
+                removeCard={removeCardFromList}
+              />
+            </GridItem>
+          ))}
+        </GridDropZone>
       </GridContextProvider>
       {Math.ceil(list.length / 15) > 1 && (
         <Stack>
