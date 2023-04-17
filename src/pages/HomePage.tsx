@@ -88,7 +88,7 @@ export const HomePage: React.FC = () => {
   });
 
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       {!isError && !name && !isLoading && Boolean(!visibleCountry.length) && (
         <AlertContainer>
           <Alert variant="outlined" severity="success">
@@ -110,6 +110,6 @@ export const HomePage: React.FC = () => {
           updateList={filterCountryFromServer}
         />
       )}
-    </>
+    </div>
   );
 };

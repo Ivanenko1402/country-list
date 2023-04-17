@@ -104,8 +104,13 @@ export const CardList: React.FC<Props> = ({
     textAlign: 'center',
     position: 'absolute',
     bottom: 0,
-    left: '50%',
-    transform: 'translate(-50%, 20px)',
+    left: 0,
+    transform: 'translate(0, 35%)'
+  //   transform: count === 1
+  //     ? 'translate(-50%, 2640px)'
+  //     : count === 2
+  //       ? 'translate(-50%, 885px)'
+  //       : 'translate(-50%, 2640px)',
   });
 
   const rowHeight = 300;
