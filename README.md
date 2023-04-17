@@ -2,8 +2,9 @@
 
 ### У проекті були використані наступні технології та бібліотеки:
 
-* React.js
-* React Router Dom
-* MUI, MUI Icons
-* TypeScript
-* React Grid DnD
+* React.js,
+* React Router Dom,
+* MUI, MUI Icons, Styled Components,
+* TypeScript,
+* React Grid DnD,
+* Redux toolkit,

@@ -88,7 +88,9 @@ export const HomePage: React.FC = () => {
   });
 
   const Box = styled('div')({
-    minHeight: 'calc(100vh - 160px)'
+    minHeight: visibleCountry.length
+      ? 'calc(100vh - 160px)'
+      : 'calc(100vh - 260px)'
   })
 
   return (
